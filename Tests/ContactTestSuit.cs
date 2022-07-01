@@ -17,6 +17,11 @@ namespace AccessHQAssessment.Tests
             var nav = new Nav(driver);
             nav.NavigateToContactPage();
         }
+
+        /*I was unable to run tests on my machine. From here I would ensure that all tests work
+          and then I would start refactoring the test to excecute the steps from a ContactPage model
+        via lambdas and then I would refactor further by creating a ContactFormClass.
+        */
         [TestMethod]
         public void TestSubmitContactForm()
         {
@@ -25,6 +30,8 @@ namespace AccessHQAssessment.Tests
             contactPage.EmptySubmit();
             contactPage.VerifyEmptyErrorMessages();
             contactPage.SubmitForm();
+
+            //assert that all the error messages are empty and that the form submitted successfully
         }
 
         [TestCleanup]
