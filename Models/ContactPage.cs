@@ -35,6 +35,24 @@ namespace AccessHQAssessment.Models
             }
         }
 
+        public bool VerifyEmptyErrorMessages()
+        {
+            var forename = driver.FindElement(By.Id("forename")).Text.ToLower();
+            var email = driver.FindElement(By.Id("email")).Text.ToLower();
+            var message = driver.FindElement(By.Id("message")).Text.ToLower();
+            if (forename == "Forename is required".ToLower() &&
+                email == "".ToLower() &&
+                message == "".ToLower()
+                )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void waitForErrorMessages()
         {
             foreach (WebElement currentElement in driver.FindElements(By.ClassName("form-error"))

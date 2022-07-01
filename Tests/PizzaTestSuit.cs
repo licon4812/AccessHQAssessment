@@ -22,11 +22,10 @@ namespace AccessHQAssessment.Tests
         public void TestSubmitContactForm()
         {
             ContactPage contactPage = new(driver);
-            contactPage.SubmitForm();
             contactPage.waitForErrorMessages();
             contactPage.EmptySubmit();
-            
-
+            contactPage.VerifyEmptyErrorMessages();
+            contactPage.SubmitForm();
         }
 
         [TestCleanup]
