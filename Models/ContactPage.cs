@@ -17,8 +17,17 @@ namespace AccessHQAssessment.Models
             this.driver = driver;
         }
 
+        /*As I was unable to run tests I couldn't check the code logic.If I was able to check
+        the logic I would have refacted all the messy logic into a strategy pattern that
+        fires off functions from a ContactFormClass*/
+        
         public bool VerifyErrorText()
         {
+
+            /*I would have refactored this down to a couple of line by doing all the fetching
+              of the error elements in a loop from a ContactFormClass wrapped inside of a wait
+            function to wait for the elements to appear.
+            */
             var forename = driver.FindElement(By.Id("forename")).Text.ToLower();
             var email = driver.FindElement(By.Id("email")).Text.ToLower();
             var message = driver.FindElement(By.Id("message")).Text.ToLower();
@@ -34,6 +43,11 @@ namespace AccessHQAssessment.Models
                 return false;
             }
         }
+
+        /*I would have refactored this down to a couple of line by doing all the fetching
+              of the error elements in a loop from a ContactFormClass wrapped inside of a wait
+            function to wait for the elements to appear. and check if they are empty
+            */
 
         public bool VerifyEmptyErrorMessages()
         {
@@ -53,6 +67,9 @@ namespace AccessHQAssessment.Models
             }
         }
 
+        /*I would have refactored this down to a couple of line by waiting for the
+         error elements in a loop from a ContactFormClass
+            */
         public void waitForErrorMessages()
         {
             foreach (WebElement currentElement in driver.FindElements(By.ClassName("form-error"))
