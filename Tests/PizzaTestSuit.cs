@@ -7,13 +7,13 @@ namespace AccessHQAssessment.Tests
     [TestClass]
     public class PizzaTestSuit
     {
-        public ChromeDriver? driver;
+        public ChromeDriver driver;
         [TestInitialize]
         public void SetUp()
         {
             var driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            driver.Url = "https://d2dx8jn5qmn998.cloudfront.net/#/";
+            driver.Url = "https://d2tjwct0w5ff76.cloudfront.net/#/";
             var nav = new Nav(driver);
             nav.NavigateToContactPage();
             
@@ -21,15 +21,18 @@ namespace AccessHQAssessment.Tests
         [TestMethod]
         public void TestSubmitContactForm()
         {
-            ContactPage contactPage = new ContactPage(driver);
+            ContactPage contactPage = new(driver);
             contactPage.SubmitForm();
+            contactPage.waitForErrorMessages();
+            contactPage.EmptySubmit();
+            
 
         }
 
         [TestCleanup]
         public void CleanUp()
         {
-            driver?.Quit();
+            driver.Quit();
         }
     }
 }
