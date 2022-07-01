@@ -16,5 +16,10 @@ namespace AccessHQAssessment.Models
         {
             driver.FindElement(By.CssSelector("[href='#/contact']")).Click();
         }
+
+        internal void NavigateToMenuPage()
+        {
+            driver.FindElement(By.CssSelector("[href='#/menu']")).Click();
+        }
     }
 }

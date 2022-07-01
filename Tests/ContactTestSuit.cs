@@ -5,7 +5,7 @@ using OpenQA.Selenium.Chrome;
 namespace AccessHQAssessment.Tests
 {
     [TestClass]
-    public class PizzaTestSuit
+    public class ContactTestSuit
     {
         public ChromeDriver driver;
         [TestInitialize]
@@ -16,12 +16,11 @@ namespace AccessHQAssessment.Tests
             driver.Url = "https://d2tjwct0w5ff76.cloudfront.net/#/";
             var nav = new Nav(driver);
             nav.NavigateToContactPage();
-            
         }
         [TestMethod]
         public void TestSubmitContactForm()
         {
-            ContactPage contactPage = new(driver);
+            ContactPage contactPage = new ContactPage(driver);
             contactPage.waitForErrorMessages();
             contactPage.EmptySubmit();
             contactPage.VerifyEmptyErrorMessages();
